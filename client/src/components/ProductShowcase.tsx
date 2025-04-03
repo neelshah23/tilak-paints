@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import imageBucket1 from "@assets/WhatsApp Image 2025-04-02 at 15.32.19.jpeg";
+import imageBucket2 from "@assets/WhatsApp Image 2025-04-02 at 15.32.19 (1).jpeg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -40,7 +42,7 @@ export default function ProductShowcase() {
           >
             <div className="relative overflow-hidden rounded-xl">
               <img 
-                src="https://images.unsplash.com/photo-1568652634537-7e03374683bb?w=800&h=600&fit=crop" 
+                src={imageBucket1} 
                 alt="Professional paint buckets and supplies" 
                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
               />
@@ -70,7 +72,7 @@ export default function ProductShowcase() {
           >
             <div className="relative overflow-hidden rounded-xl">
               <img 
-                src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop" 
+                src={imageBucket2} 
                 alt="Professional painting tools and equipment" 
                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
               />
@@ -100,11 +102,9 @@ export default function ProductShowcase() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1517646331032-9e8d5a9035bb?w=400&h=300&fit=crop" 
-              alt="Paint rollers and brushes" 
-              className="w-full h-48 object-cover rounded-lg mb-4"
-            />
+            <div className="w-full h-48 rounded-lg mb-4 flex items-center justify-center bg-gradient-to-r from-blue-100 to-indigo-100">
+              <div className="text-5xl text-primary">🖌️</div>
+            </div>
             <h4 className="font-poppins font-semibold text-lg mb-2">Professional Applicators</h4>
             <p className="text-gray-600">Engineered for smooth, even application and reduced splatter</p>
           </motion.div>
@@ -116,11 +116,9 @@ export default function ProductShowcase() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop" 
-              alt="Color samples and swatches" 
-              className="w-full h-48 object-cover rounded-lg mb-4"
-            />
+            <div className="w-full h-48 rounded-lg mb-4 flex items-center justify-center bg-gradient-to-r from-pink-100 to-purple-100">
+              <div className="text-5xl text-primary">🎨</div>
+            </div>
             <h4 className="font-poppins font-semibold text-lg mb-2">Custom Color Matching</h4>
             <p className="text-gray-600">Get precisely the color you envision with our advanced matching technology</p>
           </motion.div>
@@ -132,11 +130,9 @@ export default function ProductShowcase() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <img 
-              src="https://images.unsplash.com/photo-1523730205978-59fd1b2965e3?w=400&h=300&fit=crop" 
-              alt="Special effect paint applications" 
-              className="w-full h-48 object-cover rounded-lg mb-4"
-            />
+            <div className="w-full h-48 rounded-lg mb-4 flex items-center justify-center bg-gradient-to-r from-green-100 to-teal-100">
+              <div className="text-5xl text-primary">✨</div>
+            </div>
             <h4 className="font-poppins font-semibold text-lg mb-2">Specialty Finishes</h4>
             <p className="text-gray-600">Create unique textured and designer effects for statement walls and features</p>
           </motion.div>
