@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroImage from "@assets/WhatsApp Image 2025-04-02 at 15.32.18.jpeg";
+import houseShieldImage from "@/assets/house-shield.svg";
 
 interface HeroSectionProps {
   waitlistCount: number;
@@ -19,10 +19,10 @@ export default function HeroSection({ waitlistCount }: HeroSectionProps) {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold mb-6">
-              Reinvent Your Space With <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Revolutionary</span> Paint
+              Protect Your Home With <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Revolutionary</span> Paint
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              Tilak Paints combines cutting-edge color technology with premium quality paint to transform your vision into vibrant reality.
+              Tilak Paints combines cutting-edge protective technology with premium quality paint to shield your home from weather, dust, and environmental damage.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#features">
@@ -58,12 +58,12 @@ export default function HeroSection({ waitlistCount }: HeroSectionProps) {
               <div className="absolute -top-8 -left-8 w-20 h-20 bg-yellow-400 rounded-full opacity-20"></div>
               <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-blue-400 rounded-full opacity-20"></div>
               <img 
-                src={heroImage} 
-                alt="Modern interior design with vibrant paint colors" 
+                src={houseShieldImage} 
+                alt="House protected by a transparent shield representing Tilak Paints protection" 
                 className="w-full h-auto rounded-xl shadow-2xl"
               />
               <div className="absolute top-4 right-4 bg-white px-4 py-2 rounded-full shadow-lg">
-                <span className="text-primary font-semibold">Premium Quality</span>
+                <span className="text-primary font-semibold">Advanced Protection</span>
               </div>
             </div>
           </motion.div>
