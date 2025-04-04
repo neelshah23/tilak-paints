@@ -3,24 +3,28 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
-// Color swatch data
+// Color swatch data with new color palette
 const colorSwatches = [
-  { name: "Sky Blue", hex: "#E6F2FF", category: ["all", "cool"] },
-  { name: "Blush Pink", hex: "#F9E8E8", category: ["all", "warm"] },
-  { name: "Fresh Mint", hex: "#EFF8E2", category: ["all", "cool", "trending"] },
-  { name: "Soft Cream", hex: "#FFF8E1", category: ["all", "neutrals"] },
-  { name: "Lavender Mist", hex: "#F2E8F7", category: ["all", "cool"] },
-  { name: "Aqua Breeze", hex: "#E6FFFA", category: ["all", "cool"] },
-  { name: "Navy Depth", hex: "#2B4570", category: ["all", "cool", "bold"] },
-  { name: "Warm Walnut", hex: "#7E6551", category: ["all", "warm", "neutrals"] },
-  { name: "Forest Sage", hex: "#4A6C6F", category: ["all", "cool"] },
-  { name: "Coral Splash", hex: "#F2545B", category: ["all", "warm", "bold", "trending"] },
-  { name: "Misty Green", hex: "#A3BCB6", category: ["all", "neutrals", "cool"] },
-  { name: "Sunlight", hex: "#FFEAA7", category: ["all", "warm", "trending"] },
+  // Main brand colors
+  { name: "Rich Earth", hex: "#443737", category: ["all", "brand", "neutrals", "bold"] },
+  { name: "Mauve Rose", hex: "#987284", category: ["all", "brand", "warm"] },
+  { name: "Terra Blush", hex: "#D5AA9F", category: ["all", "brand", "warm"] },
+  { name: "Wheat Gold", hex: "#E8D5B7", category: ["all", "brand", "neutrals"] },
+  { name: "Soft Peach", hex: "#F4E1D2", category: ["all", "brand", "neutrals", "trending"] },
+  
+  // Additional variations and complementary colors
+  { name: "Deep Plum", hex: "#5D4954", category: ["all", "warm", "bold"] },
+  { name: "Sandy Rose", hex: "#C69C95", category: ["all", "warm"] },
+  { name: "Almond Cream", hex: "#EFE6DC", category: ["all", "neutrals"] },
+  { name: "Olive Stone", hex: "#74685A", category: ["all", "neutrals", "cool"] },
+  { name: "Rosewood", hex: "#A86B5F", category: ["all", "warm", "trending"] },
+  { name: "Misty Sage", hex: "#C5C8B8", category: ["all", "cool", "neutrals"] },
+  { name: "Rustic Terracotta", hex: "#B56B4D", category: ["all", "warm", "bold", "trending"] },
 ];
 
 const colorCategories = [
   { id: "all", name: "All Colors" },
+  { id: "brand", name: "Brand Colors" },
   { id: "neutrals", name: "Neutrals" },
   { id: "warm", name: "Warm Tones" },
   { id: "cool", name: "Cool Tones" },
@@ -37,8 +41,8 @@ export default function ColorPalette() {
   
   return (
     <section id="colors" className="py-16 md:py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-100 rounded-full opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#F4E1D2] rounded-full opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#E8D5B7] rounded-full opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
@@ -49,10 +53,10 @@ export default function ColorPalette() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-primary font-medium uppercase tracking-wider">Discover Your Palette</span>
-          <h2 className="text-3xl md:text-4xl font-poppins font-bold mt-4 mb-6">
+          <h2 className="text-3xl md:text-4xl font-poppins font-bold mt-4 mb-6 text-[#443737]">
             Explore <span className="text-primary">Curated Color Collections</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-[#443737] max-w-3xl mx-auto">
             From timeless neutrals to bold statement hues, find the perfect colors for your next project.
           </p>
         </motion.div>
@@ -72,7 +76,7 @@ export default function ColorPalette() {
                 className={`rounded-full text-sm font-medium ${
                   activeCategory === category.id 
                     ? "" 
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 border-none"
+                    : "bg-[#F4E1D2]/30 text-[#443737] hover:bg-[#F4E1D2]/50 border-none"
                 }`}
                 onClick={() => setActiveCategory(category.id)}
               >
@@ -100,8 +104,8 @@ export default function ColorPalette() {
             >
               <div className="h-32" style={{ backgroundColor: swatch.hex }}></div>
               <div className="p-3 bg-white">
-                <h4 className="font-medium text-sm">{swatch.name}</h4>
-                <span className="text-xs text-gray-500">{swatch.hex}</span>
+                <h4 className="font-medium text-sm text-[#443737]">{swatch.name}</h4>
+                <span className="text-xs text-[#443737]/70">{swatch.hex}</span>
               </div>
             </motion.div>
           ))}
@@ -114,7 +118,7 @@ export default function ColorPalette() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <a href="#waitlist">
+          <a href="#contact">
             <Button className="inline-flex items-center justify-center gap-2">
               <span>Get Custom Color Recommendations</span>
               <ChevronRight className="h-4 w-4" />
