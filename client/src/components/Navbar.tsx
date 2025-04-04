@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,20 +36,21 @@ export default function Navbar() {
     }`}>
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-indigo-500 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#987284] to-[#D5AA9F] flex items-center justify-center">
             <span className="text-white font-bold">TP</span>
           </div>
-          <span className="ml-2 text-xl font-poppins font-bold">Tilak<span className="text-primary">Paints</span></span>
+          <span className="ml-2 text-xl font-poppins font-bold text-[#443737]">Tilak<span className="text-primary">Paints</span></span>
         </div>
         
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#home" className="text-gray-900 hover:text-primary transition-colors font-medium">Home</a>
-          <a href="#features" className="text-gray-900 hover:text-primary transition-colors font-medium">Features</a>
-          <a href="#colors" className="text-gray-900 hover:text-primary transition-colors font-medium">Colors</a>
-          <a href="#testimonials" className="text-gray-900 hover:text-primary transition-colors font-medium">Testimonials</a>
-          <a href="#waitlist">
+          <a href="#home" className="text-[#443737] hover:text-primary transition-colors font-medium">Home</a>
+          <a href="#features" className="text-[#443737] hover:text-primary transition-colors font-medium">Features</a>
+          <a href="#services" className="text-[#443737] hover:text-primary transition-colors font-medium">Services</a>
+          <a href="#colors" className="text-[#443737] hover:text-primary transition-colors font-medium">Colors</a>
+          <a href="#testimonials" className="text-[#443737] hover:text-primary transition-colors font-medium">Testimonials</a>
+          <a href="#contact">
             <Button variant="default" className="rounded-full font-semibold">
-              Join Waitlist
+              <Phone className="w-4 h-4 mr-2" /> Contact Us
             </Button>
           </a>
         </div>
@@ -68,13 +69,14 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden container mx-auto px-4 py-4 bg-white shadow-lg rounded-lg mt-2 absolute left-0 right-0">
           <div className="flex flex-col space-y-4">
-            <a href="#home" onClick={closeMobileMenu} className="text-gray-900 hover:text-primary transition-colors font-medium">Home</a>
-            <a href="#features" onClick={closeMobileMenu} className="text-gray-900 hover:text-primary transition-colors font-medium">Features</a>
-            <a href="#colors" onClick={closeMobileMenu} className="text-gray-900 hover:text-primary transition-colors font-medium">Colors</a>
-            <a href="#testimonials" onClick={closeMobileMenu} className="text-gray-900 hover:text-primary transition-colors font-medium">Testimonials</a>
-            <a href="#waitlist" onClick={closeMobileMenu}>
+            <a href="#home" onClick={closeMobileMenu} className="text-[#443737] hover:text-primary transition-colors font-medium">Home</a>
+            <a href="#features" onClick={closeMobileMenu} className="text-[#443737] hover:text-primary transition-colors font-medium">Features</a>
+            <a href="#services" onClick={closeMobileMenu} className="text-[#443737] hover:text-primary transition-colors font-medium">Services</a>
+            <a href="#colors" onClick={closeMobileMenu} className="text-[#443737] hover:text-primary transition-colors font-medium">Colors</a>
+            <a href="#testimonials" onClick={closeMobileMenu} className="text-[#443737] hover:text-primary transition-colors font-medium">Testimonials</a>
+            <a href="#contact" onClick={closeMobileMenu}>
               <Button variant="default" className="rounded-full font-semibold w-full">
-                Join Waitlist
+                <Phone className="w-4 h-4 mr-2" /> Contact Us
               </Button>
             </a>
           </div>
