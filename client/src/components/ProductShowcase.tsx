@@ -1,8 +1,16 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselPrevious, 
+  CarouselNext 
+} from "@/components/ui/carousel";
 import image1 from '@assets/image1.png';
 import image2 from '@assets/image2.png';
 import image3 from '@assets/image3.png';
+import { useState } from "react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -13,9 +21,145 @@ const fadeInUp = {
   }
 };
 
+// Paint product data array
+const productData = [
+  {
+    id: 1,
+    image: image1,
+    bgColor: '#e9e5e1',
+    title: "Premium Interior Collection",
+    subtitle: "Perfect for living spaces",
+    badges: [
+      { color: "#D5AA9F", text: "Stain Resistant" },
+      { color: "#987284", text: "Washable" },
+      { color: "#E8D5B7", text: "Low VOC", darkText: true }
+    ],
+    description: "Exceptional coverage with a smooth, elegant finish that's built to last."
+  },
+  {
+    id: 2,
+    image: image2,
+    bgColor: '#eee2e0',
+    title: "Weather-Shield Exterior",
+    subtitle: "Protection against elements",
+    gradients: [
+      { from: "#443737", to: "#987284" },
+      { from: "#D5AA9F", to: "#987284" },
+      { from: "#E8D5B7", to: "#F4E1D2" }
+    ],
+    badges: [
+      { color: "#443737", text: "UV Resistant", darkText: true },
+      { color: "#D5AA9F", text: "Waterproof" },
+      { color: "#987284", text: "Mold Resistant" }
+    ],
+    description: "Withstands extreme weather while maintaining color integrity."
+  },
+  {
+    id: 3,
+    image: image3,
+    bgColor: '#f9e9b9',
+    title: "Specialty Textures",
+    subtitle: "Creative finish options",
+    gradients: [
+      { from: "#443737", to: "#987284" },
+      { from: "#D5AA9F", to: "#987284" },
+      { from: "#E8D5B7", to: "#F4E1D2" }
+    ],
+    badges: [
+      { color: "#E8D5B7", text: "Textured", darkText: true },
+      { color: "#987284", text: "Customizable" },
+      { color: "#D5AA9F", text: "Designer" }
+    ],
+    description: "Create unique textured and artistic effects for statement walls."
+  },
+  {
+    id: 4,
+    image: image1,
+    bgColor: '#edf2f7',
+    title: "Luxury Emulsion Series",
+    subtitle: "Premium finishes",
+    badges: [
+      { color: "#987284", text: "High Durability" },
+      { color: "#D5AA9F", text: "Scuff Resistant" },
+      { color: "#443737", text: "Rich Pigment", darkText: true }
+    ],
+    description: "Our highest quality interior paint with superior coverage and durability."
+  },
+  {
+    id: 5,
+    image: image2,
+    bgColor: '#f0e5e9',
+    title: "Kids Room Special",
+    subtitle: "Safe for children",
+    gradients: [
+      { from: "#D5AA9F", to: "#F4E1D2" },
+      { from: "#E8D5B7", to: "#F4E1D2" },
+      { from: "#987284", to: "#D5AA9F" }
+    ],
+    badges: [
+      { color: "#D5AA9F", text: "Non-Toxic" },
+      { color: "#E8D5B7", text: "Washable", darkText: true },
+      { color: "#987284", text: "Easy Clean" }
+    ],
+    description: "Specially formulated for children's rooms with zero VOC and easy cleaning."
+  },
+  {
+    id: 6,
+    image: image3,
+    bgColor: '#e0e4e5',
+    title: "Commercial Strength",
+    subtitle: "For high-traffic areas",
+    gradients: [
+      { from: "#443737", to: "#987284" },
+      { from: "#987284", to: "#D5AA9F" },
+      { from: "#D5AA9F", to: "#E8D5B7" }
+    ],
+    badges: [
+      { color: "#443737", text: "Heavy Duty", darkText: true },
+      { color: "#987284", text: "Anti-Microbial" },
+      { color: "#D5AA9F", text: "Scrub Resistant" }
+    ],
+    description: "Designed for commercial spaces with exceptional durability and cleaning resistance."
+  },
+  {
+    id: 7,
+    image: image1,
+    bgColor: '#f7f6f1',
+    title: "Eco-Friendly Range",
+    subtitle: "Sustainable solutions",
+    badges: [
+      { color: "#E8D5B7", text: "Plant-Based", darkText: true },
+      { color: "#987284", text: "Low Carbon" },
+      { color: "#D5AA9F", text: "Recyclable" }
+    ],
+    description: "Our environmentally conscious paint line made with sustainable ingredients."
+  },
+  {
+    id: 8,
+    image: image2,
+    bgColor: '#f5eae5',
+    title: "Designer Metallics",
+    subtitle: "Luxury accent finishes",
+    gradients: [
+      { from: "#987284", to: "#D5AA9F" },
+      { from: "#D5AA9F", to: "#E8D5B7" },
+      { from: "#E8D5B7", to: "#F4E1D2" }
+    ],
+    badges: [
+      { color: "#987284", text: "Metallic Sheen" },
+      { color: "#D5AA9F", text: "Light Reflective" },
+      { color: "#E8D5B7", text: "Premium Finish", darkText: true }
+    ],
+    description: "Add elegance with our premium metallic finishes for accent walls and features."
+  }
+];
+
 export default function ProductShowcase() {
+  // Optional state for active item (could be used for additional features)
+  const [activeIndex, setActiveIndex] = useState(0);
+  
   return (
-    <section className="py-16 md:py-24 bg-[#F4E1D2]/20">
+    <section id="products" className="py-16 md:py-24 bg-[#F4E1D2]/20">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16 animate-on-scroll"
@@ -33,104 +177,85 @@ export default function ProductShowcase() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
-          <motion.div 
-            className="flex flex-col animate-on-scroll"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
+        {/* Product Carousel */}
+        <div className="mb-16 relative">
+          <Carousel
+            opts={{ 
+              align: "start",
+              loop: true
+            }}
+            className="w-full"
           >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-64 sm:h-72 md:h-80" style={{ backgroundColor: '#e9e5e1' }}>
-              {/* Color palette swatches instead of image */}
-              <img src={image1} alt="Paint Palette" className="w-full h-full object-contain" />
-              
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
-                <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold">Premium Interior Collection</h3>
-                <p className="text-white/80 text-sm sm:text-base">Perfect for living spaces</p>
-              </div>
-            </div>
-            <div className="mt-4 sm:mt-6">
-              <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-                <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Stain Resistant</Badge>
-                <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Washable</Badge>
-                <Badge className="bg-[#E8D5B7]/20 text-[#443737] hover:bg-[#E8D5B7]/30 border border-[#E8D5B7]/50">Low VOC</Badge>
-              </div>
-              <p className="text-[#443737] text-sm sm:text-base">
-                Exceptional coverage with a smooth, elegant finish that's built to last.
-              </p>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            className="flex flex-col animate-on-scroll"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            transition={{ delay: 0.1 }}
-          >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-64 sm:h-72 md:h-80" style={{ backgroundColor: '#eee2e0' }}>
-              {/* Color gradient display for exterior paint */}
-              <div className="absolute inset-0 flex flex-col">
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#443737] to-[#987284]"></div>
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#D5AA9F] to-[#987284]"></div>
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#E8D5B7] to-[#F4E1D2]"></div>
-                <img src={image2} alt="Paint Palette" className="w-full h-full object-contain" />
-              </div>
-              
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
-                <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold">Weather-Shield Exterior</h3>
-                <p className="text-white/80 text-sm sm:text-base">Protection against elements</p>
-              </div>
-            </div>
-            <div className="mt-4 sm:mt-6">
-              <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-                <Badge className="bg-[#443737]/20 text-[#443737] hover:bg-[#443737]/30 border border-[#443737]/50">UV Resistant</Badge>
-                <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Waterproof</Badge>
-                <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Mold Resistant</Badge>
-              </div>
-              <p className="text-[#443737] text-sm sm:text-base">
-                Withstands extreme weather while maintaining color integrity.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className="flex flex-col animate-on-scroll"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            transition={{ delay: 0.2 }}
-          >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-64 sm:h-72 md:h-80" style={{ backgroundColor: '#f9e9b9' }}>
-              {/* Color gradient display for specialty paint */}
-              <div className="absolute inset-0 flex flex-col">
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#443737] to-[#987284]"></div>
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#D5AA9F] to-[#987284]"></div>
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#E8D5B7] to-[#F4E1D2]"></div>
-                <img src={image3} alt="Paint Palette" className="w-full h-full object-contain" />
-              </div>
-              
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
-                <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold">Specialty Textures</h3>
-                <p className="text-white/80 text-sm sm:text-base">Creative finish options</p>
-              </div>
-            </div>
-            <div className="mt-4 sm:mt-6">
-              <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-                <Badge className="bg-[#E8D5B7]/20 text-[#443737] hover:bg-[#E8D5B7]/30 border border-[#E8D5B7]/50">Textured</Badge>
-                <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Customizable</Badge>
-                <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Designer</Badge>
-              </div>
-              <p className="text-[#443737] text-sm sm:text-base">
-                Create unique textured and artistic effects for statement walls.
-              </p>
-            </div>
-          </motion.div>
+            <CarouselContent>
+              {productData.map((product, index) => (
+                <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <motion.div 
+                    className="flex flex-col h-full"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    transition={{ delay: index * 0.1 % 0.3 }}
+                  >
+                    <div 
+                      className="relative overflow-hidden rounded-xl bg-white shadow-lg h-64 sm:h-72 md:h-80"
+                      style={{ backgroundColor: product.bgColor }}
+                    >
+                      {/* Color gradient layers if present */}
+                      {product.gradients && (
+                        <div className="absolute inset-0 flex flex-col">
+                          {product.gradients.map((gradient, i) => (
+                            <div 
+                              key={i}
+                              className="h-1/3 w-full" 
+                              style={{ background: `linear-gradient(to right, ${gradient.from}, ${gradient.to})` }}
+                            />
+                          ))}
+                        </div>
+                      )}
+                      
+                      {/* Product image */}
+                      <img src={product.image} alt={product.title} className="w-full h-full object-contain relative z-10" />
+                      
+                      {/* Title overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6 z-20">
+                        <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold">{product.title}</h3>
+                        <p className="text-white/80 text-sm sm:text-base">{product.subtitle}</p>
+                      </div>
+                    </div>
+                    <div className="mt-4 sm:mt-6">
+                      <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
+                        {product.badges.map((badge, i) => (
+                          <Badge 
+                            key={i} 
+                            className={`
+                              ${badge.darkText ? 'text-[#443737]' : ''}
+                              border
+                            `}
+                            style={{
+                              backgroundColor: `${badge.color}20`,
+                              color: badge.darkText ? '#443737' : badge.color,
+                              borderColor: `${badge.color}80`
+                            }}
+                          >
+                            {badge.text}
+                          </Badge>
+                        ))}
+                      </div>
+                      <p className="text-[#443737] text-sm sm:text-base">
+                        {product.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0 bg-white/90 hover:bg-white" />
+            <CarouselNext className="right-0 bg-white/90 hover:bg-white" />
+          </Carousel>
         </div>
         
+        {/* Additional product features section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div 
             className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
