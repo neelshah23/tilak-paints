@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import image1 from '@assets/image1.png';
+import image2 from '@assets/image2.png';
+import image3 from '@assets/image3.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -38,16 +41,12 @@ export default function ProductShowcase() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80">
+            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80" style={{ backgroundColor: '#e9e5e1' }}>
               {/* Color palette swatches instead of image */}
-              <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-2 p-4">
-                <div className="rounded-lg bg-[#D5AA9F] transform hover:scale-105 transition-all duration-300 shadow-md"></div>
-                <div className="rounded-lg bg-[#E8D5B7] transform hover:scale-105 transition-all duration-300 shadow-md"></div>
-                <div className="rounded-lg bg-[#F4E1D2] transform hover:scale-105 transition-all duration-300 shadow-md"></div>
-                <div className="rounded-lg bg-[#987284]/90 transform hover:scale-105 transition-all duration-300 shadow-md"></div>
-                <div className="rounded-lg bg-[#987284]/70 transform hover:scale-105 transition-all duration-300 shadow-md"></div>
-                <div className="rounded-lg bg-[#987284]/50 transform hover:scale-105 transition-all duration-300 shadow-md"></div>
-              </div>
+              {/* <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-2 p-4"> */}
+                <img src={image1} alt="Paint Palette" className="w-full h-full object-contain" />
+                
+              {/* </div> */}
               
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                 <h3 className="text-white text-xl font-poppins font-semibold">Premium Interior Collection</h3>
@@ -73,7 +72,7 @@ export default function ProductShowcase() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80">
+            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80" style={{ backgroundColor: '#eee2e0' }}>
               {/* Color gradient display for exterior paint */}
               <div className="absolute inset-0 flex flex-col">
                 <div className="h-1/3 w-full bg-gradient-to-r from-[#443737] to-[#987284]"></div>
@@ -81,7 +80,7 @@ export default function ProductShowcase() {
                 <div className="h-1/3 w-full bg-gradient-to-r from-[#E8D5B7] to-[#F4E1D2]"></div>
                 
                 {/* Weather protection icons */}
-                <div className="absolute inset-0 flex items-center justify-around">
+                {/* <div className="absolute inset-0 flex items-center justify-around">
                   <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
                     💧
                   </div>
@@ -91,7 +90,99 @@ export default function ProductShowcase() {
                   <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
                     ❄️
                   </div>
-                </div>
+                </div> */}
+                <img src={image2} alt="Paint Palette" className="w-full h-full object-contain" />
+              </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                <h3 className="text-white text-xl font-poppins font-semibold">Weather-Shield Exterior Line</h3>
+                <p className="text-white/80">Advanced protection against the elements</p>
+              </div>
+            </div>
+            <div className="mt-6">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <Badge className="bg-[#443737]/20 text-[#443737] hover:bg-[#443737]/30 border border-[#443737]/50">UV Resistant</Badge>
+                <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Waterproof</Badge>
+                <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Mold Resistant</Badge>
+              </div>
+              <p className="text-[#443737]">
+                Designed to withstand extreme weather conditions while maintaining color integrity and surface protection.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="flex flex-col animate-on-scroll"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
+            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80" style={{ backgroundColor: '#eee2e0' }}>
+              {/* Color gradient display for exterior paint */}
+              <div className="absolute inset-0 flex flex-col">
+                <div className="h-1/3 w-full bg-gradient-to-r from-[#443737] to-[#987284]"></div>
+                <div className="h-1/3 w-full bg-gradient-to-r from-[#D5AA9F] to-[#987284]"></div>
+                <div className="h-1/3 w-full bg-gradient-to-r from-[#E8D5B7] to-[#F4E1D2]"></div>
+                
+                {/* Weather protection icons */}
+                {/* <div className="absolute inset-0 flex items-center justify-around">
+                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
+                    💧
+                  </div>
+                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
+                    ☀️
+                  </div>
+                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
+                    ❄️
+                  </div>
+                </div> */}
+                <img src={image2} alt="Paint Palette" className="w-full h-full object-contain" />
+              </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                <h3 className="text-white text-xl font-poppins font-semibold">Weather-Shield Exterior Line</h3>
+                <p className="text-white/80">Advanced protection against the elements</p>
+              </div>
+            </div>
+            <div className="mt-6">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <Badge className="bg-[#443737]/20 text-[#443737] hover:bg-[#443737]/30 border border-[#443737]/50">UV Resistant</Badge>
+                <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Waterproof</Badge>
+                <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Mold Resistant</Badge>
+              </div>
+              <p className="text-[#443737]">
+                Designed to withstand extreme weather conditions while maintaining color integrity and surface protection.
+              </p>
+            </div>
+          </motion.div>
+          <motion.div 
+            className="flex flex-col animate-on-scroll"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
+            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80" style={{ backgroundColor: '#f9e9b9' }}>
+              {/* Color gradient display for exterior paint */}
+              <div className="absolute inset-0 flex flex-col">
+                <div className="h-1/3 w-full bg-gradient-to-r from-[#443737] to-[#987284]"></div>
+                <div className="h-1/3 w-full bg-gradient-to-r from-[#D5AA9F] to-[#987284]"></div>
+                <div className="h-1/3 w-full bg-gradient-to-r from-[#E8D5B7] to-[#F4E1D2]"></div>
+                
+                {/* Weather protection icons */}
+                {/* <div className="absolute inset-0 flex items-center justify-around">
+                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
+                    💧
+                  </div>
+                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
+                    ☀️
+                  </div>
+                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
+                    ❄️
+                  </div>
+                </div> */}
+                <img src={image3} alt="Paint Palette" className="w-full h-full object-contain" />
               </div>
               
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">

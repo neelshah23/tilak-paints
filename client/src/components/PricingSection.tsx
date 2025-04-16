@@ -6,8 +6,8 @@ const pricingPlans = [
   {
     name: "Essentials Line",
     description: "Perfect for standard residential projects",
-    price: "$42",
-    unit: "/gallon",
+    price: "₹420",
+    unit: "/liter",
     note: "Starting price, varies by color",
     features: [
       "Low VOC formulation",
@@ -20,8 +20,8 @@ const pricingPlans = [
   {
     name: "Professional Series",
     description: "For designers and quality-conscious homeowners",
-    price: "$58",
-    unit: "/gallon",
+    price: "₹540",
+    unit: "/liter",
     note: "Starting price, varies by color",
     features: [
       "Zero VOC premium formulation",
@@ -35,8 +35,8 @@ const pricingPlans = [
   {
     name: "Commercial Grade",
     description: "For contractors and commercial projects",
-    price: "$79",
-    unit: "/gallon",
+    price: "₹840",
+    unit: "/liter",
     note: "Starting price, bulk discounts available",
     features: [
       "Ultra-durable commercial formulation",
