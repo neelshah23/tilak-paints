@@ -33,7 +33,7 @@ export default function ProductShowcase() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
           <motion.div 
             className="flex flex-col animate-on-scroll"
             initial="hidden"
@@ -41,26 +41,23 @@ export default function ProductShowcase() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80" style={{ backgroundColor: '#e9e5e1' }}>
+            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-64 sm:h-72 md:h-80" style={{ backgroundColor: '#e9e5e1' }}>
               {/* Color palette swatches instead of image */}
-              {/* <div className="absolute inset-0 grid grid-cols-3 grid-rows-2 gap-2 p-4"> */}
-                <img src={image1} alt="Paint Palette" className="w-full h-full object-contain" />
-                
-              {/* </div> */}
+              <img src={image1} alt="Paint Palette" className="w-full h-full object-contain" />
               
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                <h3 className="text-white text-xl font-poppins font-semibold">Premium Interior Collection</h3>
-                <p className="text-white/80">Perfect for living spaces and high-traffic areas</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
+                <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold">Premium Interior Collection</h3>
+                <p className="text-white/80 text-sm sm:text-base">Perfect for living spaces</p>
               </div>
             </div>
-            <div className="mt-6">
-              <div className="flex flex-wrap gap-2 mb-4">
+            <div className="mt-4 sm:mt-6">
+              <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                 <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Stain Resistant</Badge>
                 <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Washable</Badge>
                 <Badge className="bg-[#E8D5B7]/20 text-[#443737] hover:bg-[#E8D5B7]/30 border border-[#E8D5B7]/50">Low VOC</Badge>
               </div>
-              <p className="text-[#443737]">
-                Our interior collection offers exceptional coverage with a smooth, elegant finish that's built to last.
+              <p className="text-[#443737] text-sm sm:text-base">
+                Exceptional coverage with a smooth, elegant finish that's built to last.
               </p>
             </div>
           </motion.div>
@@ -71,42 +68,30 @@ export default function ProductShowcase() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
+            transition={{ delay: 0.1 }}
           >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80" style={{ backgroundColor: '#eee2e0' }}>
+            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-64 sm:h-72 md:h-80" style={{ backgroundColor: '#eee2e0' }}>
               {/* Color gradient display for exterior paint */}
               <div className="absolute inset-0 flex flex-col">
                 <div className="h-1/3 w-full bg-gradient-to-r from-[#443737] to-[#987284]"></div>
                 <div className="h-1/3 w-full bg-gradient-to-r from-[#D5AA9F] to-[#987284]"></div>
                 <div className="h-1/3 w-full bg-gradient-to-r from-[#E8D5B7] to-[#F4E1D2]"></div>
-                
-                {/* Weather protection icons */}
-                {/* <div className="absolute inset-0 flex items-center justify-around">
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    💧
-                  </div>
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    ☀️
-                  </div>
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    ❄️
-                  </div>
-                </div> */}
                 <img src={image2} alt="Paint Palette" className="w-full h-full object-contain" />
               </div>
               
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                <h3 className="text-white text-xl font-poppins font-semibold">Weather-Shield Exterior Line</h3>
-                <p className="text-white/80">Advanced protection against the elements</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
+                <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold">Weather-Shield Exterior</h3>
+                <p className="text-white/80 text-sm sm:text-base">Protection against elements</p>
               </div>
             </div>
-            <div className="mt-6">
-              <div className="flex flex-wrap gap-2 mb-4">
+            <div className="mt-4 sm:mt-6">
+              <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                 <Badge className="bg-[#443737]/20 text-[#443737] hover:bg-[#443737]/30 border border-[#443737]/50">UV Resistant</Badge>
                 <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Waterproof</Badge>
                 <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Mold Resistant</Badge>
               </div>
-              <p className="text-[#443737]">
-                Designed to withstand extreme weather conditions while maintaining color integrity and surface protection.
+              <p className="text-[#443737] text-sm sm:text-base">
+                Withstands extreme weather while maintaining color integrity.
               </p>
             </div>
           </motion.div>
@@ -117,87 +102,30 @@ export default function ProductShowcase() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
+            transition={{ delay: 0.2 }}
           >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80" style={{ backgroundColor: '#eee2e0' }}>
-              {/* Color gradient display for exterior paint */}
+            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-64 sm:h-72 md:h-80" style={{ backgroundColor: '#f9e9b9' }}>
+              {/* Color gradient display for specialty paint */}
               <div className="absolute inset-0 flex flex-col">
                 <div className="h-1/3 w-full bg-gradient-to-r from-[#443737] to-[#987284]"></div>
                 <div className="h-1/3 w-full bg-gradient-to-r from-[#D5AA9F] to-[#987284]"></div>
                 <div className="h-1/3 w-full bg-gradient-to-r from-[#E8D5B7] to-[#F4E1D2]"></div>
-                
-                {/* Weather protection icons */}
-                {/* <div className="absolute inset-0 flex items-center justify-around">
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    💧
-                  </div>
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    ☀️
-                  </div>
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    ❄️
-                  </div>
-                </div> */}
-                <img src={image2} alt="Paint Palette" className="w-full h-full object-contain" />
-              </div>
-              
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                <h3 className="text-white text-xl font-poppins font-semibold">Weather-Shield Exterior Line</h3>
-                <p className="text-white/80">Advanced protection against the elements</p>
-              </div>
-            </div>
-            <div className="mt-6">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Badge className="bg-[#443737]/20 text-[#443737] hover:bg-[#443737]/30 border border-[#443737]/50">UV Resistant</Badge>
-                <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Waterproof</Badge>
-                <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Mold Resistant</Badge>
-              </div>
-              <p className="text-[#443737]">
-                Designed to withstand extreme weather conditions while maintaining color integrity and surface protection.
-              </p>
-            </div>
-          </motion.div>
-          <motion.div 
-            className="flex flex-col animate-on-scroll"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-          >
-            <div className="relative overflow-hidden rounded-xl bg-white shadow-lg h-80" style={{ backgroundColor: '#f9e9b9' }}>
-              {/* Color gradient display for exterior paint */}
-              <div className="absolute inset-0 flex flex-col">
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#443737] to-[#987284]"></div>
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#D5AA9F] to-[#987284]"></div>
-                <div className="h-1/3 w-full bg-gradient-to-r from-[#E8D5B7] to-[#F4E1D2]"></div>
-                
-                {/* Weather protection icons */}
-                {/* <div className="absolute inset-0 flex items-center justify-around">
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    💧
-                  </div>
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    ☀️
-                  </div>
-                  <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center text-3xl shadow-lg">
-                    ❄️
-                  </div>
-                </div> */}
                 <img src={image3} alt="Paint Palette" className="w-full h-full object-contain" />
               </div>
               
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                <h3 className="text-white text-xl font-poppins font-semibold">Weather-Shield Exterior Line</h3>
-                <p className="text-white/80">Advanced protection against the elements</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-6">
+                <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold">Specialty Textures</h3>
+                <p className="text-white/80 text-sm sm:text-base">Creative finish options</p>
               </div>
             </div>
-            <div className="mt-6">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <Badge className="bg-[#443737]/20 text-[#443737] hover:bg-[#443737]/30 border border-[#443737]/50">UV Resistant</Badge>
-                <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Waterproof</Badge>
-                <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Mold Resistant</Badge>
+            <div className="mt-4 sm:mt-6">
+              <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
+                <Badge className="bg-[#E8D5B7]/20 text-[#443737] hover:bg-[#E8D5B7]/30 border border-[#E8D5B7]/50">Textured</Badge>
+                <Badge className="bg-[#987284]/20 text-[#987284] hover:bg-[#987284]/30 border border-[#987284]/50">Customizable</Badge>
+                <Badge className="bg-[#D5AA9F]/20 text-[#D5AA9F] hover:bg-[#D5AA9F]/30 border border-[#D5AA9F]/50">Designer</Badge>
               </div>
-              <p className="text-[#443737]">
-                Designed to withstand extreme weather conditions while maintaining color integrity and surface protection.
+              <p className="text-[#443737] text-sm sm:text-base">
+                Create unique textured and artistic effects for statement walls.
               </p>
             </div>
           </motion.div>
